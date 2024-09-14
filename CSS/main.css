@@ -1,0 +1,391 @@
+/* Fonts */
+:root {
+  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Raleway",  sans-serif;
+  --nav-font: "Poppins",  sans-serif;
+}
+
+/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+:root { 
+  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
+  --default-color: #272829; /* Default color used for the majority of the text content across the entire website */
+  --heading-color: #45505b; /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #0563bb; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+}
+
+/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+:root {
+  --nav-color: #45505b;  /* The default color of the main navmenu links */
+  --nav-hover-color: #0563bb; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
+  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: #212529; /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-hover-color: #0563bb; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+}
+
+/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
+
+.light-background {
+  --background-color: #f9f9f9;
+  --surface-color: #ffffff;
+}
+
+.dark-background {
+  --background-color: #060606;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --surface-color: #252525;
+  --contrast-color: #ffffff;
+}
+
+/* ------------------------------ Smooth scroll ----------------------------- */
+:root {
+  scroll-behavior: smooth;
+}
+
+
+/* --------------------- custom page scroll progress bar -------------------- */
+.top-progress-container {
+  width: 100%;
+  height: 4px;
+  position: fixed;
+  top: 0;
+}
+.top-progress-bar {
+  height: 4px;
+  background: var(--theme-color);
+  width: 0%;
+}
+/* ------------------- custom page scroll progress bar end ------------------ */
+
+
+/* ------------------------------ nav bar style ----------------------------- */
+nav span {
+  display: inline-block;
+  position: relative;
+  color: var(--theme-color);
+  transition: 1.5s;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+nav span:after {
+  text-decoration: underline;
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--theme-color);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+nav span:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+nav span a {
+  text-decoration: none;
+  all: unset;
+}
+nav span a:hover {
+  all: unset;
+}
+/* ---------------------------- nav bar style end --------------------------- */
+
+ /* ----------------------------- name text style ---------------------------- */
+.name-text-title {
+  font-size: 5rem;
+  transition: 1.5s;
+  color: var(--heading-color);
+}
+#about ul , p{
+  font-size: 1.2em;
+}
+/* --------------------------- name text style end -------------------------- */
+
+ /* ---------------------------- typing text style --------------------------- */
+.typed-text {
+  font-size: 1.2em;
+  transition: 1.5s;
+  color: var(--theme-color);
+}
+.cursor {
+  display: inline-block;
+  background-color: #ccc;
+  margin-left: 0.1rem;
+  width: 4px;
+  height: 1.4rem;
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  0% {
+    background-color: #ccc;
+  }
+  49% {
+    background-color: #ccc;
+  }
+  50% {
+    background-color: transparent;
+  }
+  99% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: #ccc;
+  }
+}
+/* -------------------------- typing text style end ------------------------- */
+
+
+
+
+
+ /* ---------------------------- Globle Custom CSS --------------------------- */
+/* a:hover {
+  opacity: 0.5;
+  color: var(--theme-color);
+}
+
+.section-title {
+  font-size: 2.5em;
+  color: var(--theme-color);
+  transition: 1.5s;
+} */
+
+/* -------------------------- Globle Custom CSS end ------------------------- */
+
+.header {
+  color: var(--default-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  padding: 0 15px;
+  transition: all ease-in-out 0.3s;
+  z-index: 997;
+ 
+  min-width: auto;
+}
+
+@media (max-width: 1199px) {
+  .header {
+    border-right: 1px  color-mix(in srgb, var(--default-color), transparent 90%);
+    width: 100px;
+    left: -100%;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1600px) {
+  .header~main {
+    margin-left: 160px;
+  }
+
+  .header~main .hero {
+    margin-left: -160px;
+    width: 100vw;
+  }
+}
+
+.header.header-show {
+  left: 0;
+}
+
+.header .header-toggle {
+  color: var(--contrast-color);
+  background-color: var(--accent-color);
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 9999;
+  transition: background-color 0.3s;
+}
+
+.header .header-toggle:hover {
+  color: var(--contrast-color);
+  background-color: color-mix(in srgb, var(--accent-color) 90%, white 15%);
+}
+/* ---------------------------- # Navigation Menu --------------------------- */
+
+.navmenu {
+  padding: 0;
+  z-index: 9997;
+  
+}
+
+.navmenu ul {
+  list-style: none;
+  padding: 0 0 20px 0;
+  margin: 0;
+  width: 140px;
+}
+
+.navmenu a,
+.navmenu a:focus {
+  color: var(--nav-color);
+  font-family: var(--nav-font);
+  display: flex;
+  align-items: center;
+  padding: 10px 18px;
+  margin-bottom: 8px;
+  font-size: 15px;
+  border-radius: 50px;
+  background: color-mix(in srgb, var(--nav-dropdown-color), transparent 92%);
+  height: 56px;
+  width: 100%;
+  overflow: hidden;
+  transition: 0.3s;
+  
+}
+
+.navmenu a i,
+.navmenu a:focus i {
+  font-size: 20px;
+  
+}
+
+.navmenu a span,
+.navmenu a:focus span {
+  padding: 0 5px 0 7px;
+}
+
+@media (min-width: 992px) {
+
+  .navmenu a,
+  .navmenu a:focus {
+    max-width: 56px;
+  }
+
+  .navmenu a span,
+  .navmenu a:focus span {
+    display: none;
+    background-color: var(--nav-color);
+  }
+}
+
+.navmenu a:hover,
+.navmenu .active,
+.navmenu .active:focus,
+.navmenu li:hover>a {
+  color: var(--contrast-color);
+  background: var(--default-color);
+}
+
+.navmenu a:hover,
+.navmenu li:hover>a {
+  max-width: 100%;
+  color: var(--contrast-color);
+
+}
+
+.navmenu a:hover span,
+.navmenu li:hover>a span {
+  display: block;
+  
+}
+/* --------------------------- navigation menu end--------------------------- */
+/* ----------------------------- profile picture ---------------------------- */
+.profile-picture-container {
+  height: 300px;
+  width: 300px;
+}
+.profile-picture {
+  width: 100%;
+  height: 90%;
+  border-radius: 20%;
+  object-fit: cover;
+  object-position: 25% 25%;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+.profile-picture:hover {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+}
+/* --------------------------- profile picture end -------------------------- */
+/* ---------------------------- # Resume Section ---------------------------- */
+
+.resume .resume-title {
+  color: var(--heading-color);
+  font-size: 26px;
+  font-weight: 100;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  /* font-size: 2.5em; */
+  
+  transition: 1.5s;
+}
+.resume span{
+  font-size: 2.5em;
+  color: var(--theme-color);
+  transition: 1.5s;
+  text-align: center;
+}
+
+
+.resume .resume-item {
+  padding: 0 0 20px 20px;
+  margin-top: -2px;
+  border-left: 2px solid var(--accent-color);
+  position: relative;
+}
+
+.resume .resume-item h4 {
+  line-height: 18px;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  margin-bottom: 10px;
+}
+
+.resume .resume-item h5 {
+  font-size: 16px;
+  padding: 5px 15px;
+  display: inline-block;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.resume .resume-item ul {
+  padding-left: 20px;
+}
+
+.resume .resume-item ul li {
+  padding-bottom: 10px;
+}
+
+.resume .resume-item:last-child {
+  padding-bottom: 0;
+}
+
+.resume .resume-item::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50px;
+  left: -9px;
+  top: 0;
+  background: var(--background-color);
+  border: 2px solid var(--accent-color);
+}
+/* --------------------------- resume seciton end --------------------------- */
+
